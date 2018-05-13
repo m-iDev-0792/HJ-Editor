@@ -35,7 +35,6 @@ private:
     QTextCharFormat classFormat;
     QTextCharFormat singleLineCommentFormat;
     QTextCharFormat multiLineCommentFormat;
-    QTextCharFormat quotationFormat;
     QTextCharFormat functionFormat;
 };
 //! [0]

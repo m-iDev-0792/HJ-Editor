@@ -9,5 +9,6 @@
         <file>Run.png</file>
         <file>Setting.png</file>
         <file>stop.png</file>
+        <file>build.png</file>
     </qresource>
 </RCC>

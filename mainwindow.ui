@@ -92,20 +92,21 @@
    <addaction name="actionSave_File"/>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
-   <addaction name="actionRun"/>
    <addaction name="actionSetting"/>
+   <addaction name="actionBuild"/>
+   <addaction name="actionRun"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewFile">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/New.png</normaloff>:/image/New.png</iconset>
    </property>
    <property name="text">
     <string>新建</string>
    </property>
    <property name="toolTip">
-    <string>新建一个C++代码文件</string>
+    <string>新建一个HJ代码文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -113,7 +114,7 @@
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/Open.png</normaloff>:/image/Open.png</iconset>
    </property>
    <property name="text">
@@ -139,7 +140,7 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/Undo.png</normaloff>:/image/Undo.png</iconset>
    </property>
    <property name="text">
@@ -151,7 +152,7 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/Redo.png</normaloff>:/image/Redo.png</iconset>
    </property>
    <property name="text">
@@ -179,7 +180,7 @@
   </action>
   <action name="actionSave_File">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/Save.png</normaloff>:/image/Save.png</iconset>
    </property>
    <property name="text">
@@ -194,7 +195,7 @@
   </action>
   <action name="actionRun">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/Run.png</normaloff>:/image/Run.png</iconset>
    </property>
    <property name="text">
@@ -209,7 +210,7 @@
   </action>
   <action name="actionSetting">
    <property name="icon">
-    <iconset>
+    <iconset resource="image.qrc">
      <normaloff>:/image/Setting.png</normaloff>:/image/Setting.png</iconset>
    </property>
    <property name="text">
@@ -220,6 +221,21 @@
    </property>
    <property name="visible">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionBuild">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/image/build.png</normaloff>:/image/build.png</iconset>
+   </property>
+   <property name="text">
+    <string>编译</string>
+   </property>
+   <property name="toolTip">
+    <string>编译代码</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
    </property>
   </action>
  </widget>
@@ -236,6 +252,8 @@
    <header location="global">console.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -8,9 +8,9 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = HJ-Editor
+TARGET = HJ-IDE
 TEMPLATE = app
-
+CONFIG += c++14
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -29,14 +29,20 @@ SOURCES += \
     codeeditor.cpp \
     highlighter.cpp \
     completelistwidget.cpp \
-    console.cpp
+    console.cpp \
+    HJvm.cpp
+
+
 
 HEADERS += \
         mainwindow.h \
     codeeditor.h \
     highlighter.h \
     completelistwidget.h \
-    console.h
+    console.h \
+    tokenAnalysiser.h\
+    createAST.h\
+    HJvm.h
 
 FORMS += \
         mainwindow.ui

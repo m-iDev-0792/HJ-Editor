@@ -9,20 +9,12 @@ Highlighter::Highlighter(QTextDocument *parent)
     keywordFormat.setForeground(QColor(201,81,116));
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
-    keywordPatterns << "\\bchar\\b" << "\\bclass\\b" << "\\bconst\\b"
-                    << "\\bdouble\\b" << "\\benum\\b" << "\\bexplicit\\b"
-                    << "\\bfriend\\b" << "\\binline\\b" << "\\bint\\b"
-                    << "\\blong\\b" << "\\bnamespace\\b" << "\\boperator\\b"
-                    << "\\bprivate\\b" << "\\bprotected\\b" << "\\bpublic\\b"
-                    << "\\bshort\\b" << "\\bsignals\\b" << "\\bsigned\\b"
-                    << "\\bslots\\b" << "\\bstatic\\b" << "\\bstruct\\b"
-                    << "\\btemplate\\b" << "\\btypedef\\b" << "\\btypename\\b"
-                    << "\\bunion\\b" << "\\bunsigned\\b" << "\\bvirtual\\b"
-                    << "\\bvoid\\b" << "\\bvolatile\\b" << "\\bbool\\b"<<"\\busing\\b"<<"\\bconstexpr\\b"
-                    <<"\\bsizeof\\b"<<"\\bif\\b"<<"\\bfor\\b"<<"\\bforeach\\b"<<"\\bwhile\\b"<<"\\bdo\\b"<<"\\bcase\\b"
-                    <<"\\bbreak\\b"<<"\\bcontinue\\b"<<"\\btemplate\\b"<<"\\bdelete\\b"<<"\\bnew\\b"
-                    <<"\\bdefault\\b"<<"\\btry\\b"<<"\\breturn\\b"<<"\\bthrow\\b"<<"\\bcatch\\b"<<"\\bgoto\\b"<<"\\belse\\b"
-                    <<"\\bextren\\b"<<"\\bthis\\b"<<"\\bswitch\\b"<<"\\binclude\\b"<<"\\bdefine\\b";
+    keywordPatterns << "\\bconst\\b"
+                    << "\\bint\\b"
+                    << "\\bbool\\b"
+                    <<"\\bif\\b"<<"\\bfor\\b"<<"\\bwhile\\b"
+                    <<"\\bbreak\\b"<<"\\bcontinue\\b"
+                    <<"\\breturn\\b"<<"\\belse\\b"<<"\\bfunc\\b";
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegularExpression(pattern);
         rule.format = keywordFormat;
@@ -43,20 +35,13 @@ Highlighter::Highlighter(QTextDocument *parent)
 //! [3]
     //注释代码 规则
     singleLineCommentFormat.setForeground(Qt::green);
-    rule.pattern = QRegularExpression("//[^\n]*");
+    rule.pattern = QRegularExpression("#[^\n]*");
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 
     multiLineCommentFormat.setForeground(Qt::green);
 //! [3]
 
-//! [4]
-    //头文件包含规则
-    quotationFormat.setForeground(Qt::darkGreen);
-    rule.pattern = QRegularExpression("(?<=#include\\s)(<.*>)|(?<=#include)(<.*>)|(?<=#include\\s)(\".*\")|(?<=#include)(\".*\")|\".*\"");
-    rule.format = quotationFormat;
-    highlightingRules.append(rule);
-//! [4]
 
 //! [5]
     //函数 规则
@@ -68,8 +53,8 @@ Highlighter::Highlighter(QTextDocument *parent)
 //! [5]
 
 //! [6]
-    commentStartExpression = QRegularExpression("/\\*");
-    commentEndExpression = QRegularExpression("\\*/");
+    commentStartExpression = QRegularExpression("#");
+    commentEndExpression = QRegularExpression("#");
 }
 //! [6]
 

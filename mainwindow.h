@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QDebug>
+#include "HJvm.h"
 namespace Ui {
   class MainWindow;
 }
@@ -24,6 +25,7 @@ private:
   Ui::MainWindow *ui;
   Highlighter *highlighter;
   QProcess process;
+  HJvm* codeRunner;
   void setUpHighlighter();
   //---------记录文件信息----------
   QString fileName;
@@ -44,12 +46,12 @@ public slots:
   void changeSaveState(){
     //qDebug()<<"changed";
     if(firstLoad&&fileSaved){
-        this->setWindowTitle(tr("HJ Editor - ")+fileName);
+        this->setWindowTitle(tr("HJ IDE - ")+fileName);
         firstLoad=false;
         return;
       }
     fileSaved=false;
-    this->setWindowTitle(tr("HJ Editor - ")+fileName+tr("*"));
+    this->setWindowTitle(tr("HJ IDE - ")+fileName+tr("*"));
   }
 
   //---------工具栏响应函数---------
@@ -59,11 +61,14 @@ public slots:
   void undo();
   void redo();
   void run();
+  void build();
   //------------------------------
   void runFinished(int code);
+  void displayOutputWhenFinished(string givenOutput);
   void updateOutput();
   void updateError();
   void about();
+  void autoSave();
 public:
   void inputData(QString data);
 protected:

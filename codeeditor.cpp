@@ -149,7 +149,8 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
 
 //自动补全
 void CodeEditor::keyPressEvent(QKeyEvent *event){
-  //qDebug()<<event->key();
+  //qDebug()<<event->key();  
+
   if(event->modifiers()==Qt::ShiftModifier&&event->key()==40){
       this->insertPlainText(tr("()"));
       this->moveCursor(QTextCursor::PreviousCharacter);
@@ -234,20 +235,11 @@ void CodeEditor::keyPressEvent(QKeyEvent *event){
     }
 }
 void CodeEditor::setUpCompleteList(){
-  completeList<< "char" << "class" << "const"
-              << "double" << "enum" << "explicit"
-              << "friend" << "inline" << "int"
-              << "long" << "namespace" << "operator"
-              << "private" << "protected" << "public"
-              << "short" << "signals" << "signed"
-              << "slots" << "static" << "struct"
-              << "template" << "typedef" << "typename"
-              << "union" << "unsigned" << "virtual"
-              << "void" << "volatile" << "bool"<<"using"<<"constexpr"
-              <<"sizeof"<<"if"<<"for"<<"foreach"<<"while"<<"do"<<"case"
-              <<"break"<<"continue"<<"template"<<"delete"<<"new"
-              <<"default"<<"try"<<"return"<<"throw"<<"catch"<<"goto"<<"else"
-              <<"extren"<<"this"<<"switch"<<"#include <>"<<"#include \"\""<<"#define"<<"iostream";
+  completeList<<"const"
+              << "float"<< "int"
+              <<"if"<<"for"<<"while"
+              <<"break"<<"continue"
+              <<"return"<<"else"<<"func"<<"print";//<<"input";
 }
 //得到当前光标位置的字符串
 QString CodeEditor::getWordOfCursor(){
